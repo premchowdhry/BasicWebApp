@@ -2,3 +2,11 @@ language: java
 jdk:
 - openjdk8
 script: mvn clean verify
+deploy:
+  provider: heroku
+  api_key:
+    secure: XA3JMS7/5RFwoLZzOs+h2++KQrw4umkPAMHfaTgIrIyJOLh62x6Rhi/REW6fHzlNRW3+4jfpJJAoBlkwVX2AXrGQodl4sOEIIdl9zbP6fRKwRiE4zMaP7ujsz2aLnnD5KDO1iSsWBqkYINk1p8KUlOZ98aCgYddxYcLDVyXd78NFYk4tp7uqtCXwxI16dOTlLrYWZALst5H+BecYMK5EvYBSYcOZACa2E+HHB95JY1E5xJ0RcwhmYFVmnXjJ9pZbyk6W4vveNr236TWePkwcEDPbTf6RBEOUkLLxnq39WR0wT86jET25qcYY7iN6sl81GiSVLcwRCV2T24hXcd0r5Ip1CsdEGjfrRZxJg6x3cOwRbr4ZaEu8PbtFtOjI678R2Jlp/uZ74PnLW+KWheNI8jlkqbtvtaHdwmEyvP+dMgPnjeEuIqUWW0HXe3pF2Z8H0NrQvI1ul6NdiPveEvLoJZuPo5RYx2rxNLLcSbZNr4HL0Ro+8ibv/kkkFtY06h05Xa/h+TXzd4jWlIFzhU+5s2BeM66g6wUSJCcClSUzr83eW+u4b6j97UyOgZ9E38AFEsEyeD5W9ukkVoXux3eCQ7MhoKNz2I+VMr/SphsTjYP6MEh69135wmAzn8NXNGwUpmiYSbApX0UKgvvh/eeHqUmt9/2rnvB7eeAWX25NlJo=
+  app: agile-citadel-61872
+  on:
+    repo: premchowdhry/BasicWebApp
+  skip_cleanup: 'true'
