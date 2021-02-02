@@ -18,6 +18,9 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("what is your name")) {
             return "PRS";
         }
+        if (query.toLowerCase().contains("dr no")) {
+            return "Sean Connery";
+        }
         if (query.toLowerCase().contains("which of the following numbers is the largest")) {
             String[] parts = query.split(":");
             String[] numbers = parts[1].split("[\\s,]+");
@@ -56,7 +59,6 @@ public class QueryProcessor {
             return String.valueOf(prod);
         }
         if (query.toLowerCase().contains("square and a cube")) {
-            System.out.println("reached");
             String[] parts = query.split(":");
             String[] numbers = parts[1].split("[\\s,]+");
             ArrayList<Integer> res = new ArrayList<>();

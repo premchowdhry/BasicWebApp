@@ -54,4 +54,9 @@ public class QueryProcessorTest {
     public void returnsIfNoneAreCubeAndSquare() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 1225, 31"), containsString(""));
     }
+
+    @Test
+    public void knowsDrNoJamesBond() throws Exception {
+        assertThat(queryProcessor.process("Who played James Bond in the film Dr No"), containsString("Sean Connery"));
+    }
 }
