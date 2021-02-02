@@ -4,6 +4,21 @@ import java.util.ArrayList;
 
 public class QueryProcessor {
 
+    public static boolean isPrime(int num) {
+        int i = 2;
+        boolean flag = false;
+        while (i <= num / 2) {
+            // condition for nonprime number
+            if (num % i == 0) {
+                flag = true;
+                break;
+            }
+
+            ++i;
+        }
+        return !flag;
+    }
+
     public String process(String query) {
         if (query.toLowerCase().contains("shakespeare")) {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
@@ -30,7 +45,7 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("eiffel tower")) {
             return "Paris";
         }
-        if (query.toLowerCase().contains("which of the following numbers is the largest")) {
+        if (query.toLowerCase().contains("largest")) {
             String[] parts = query.split(":");
             String[] numbers = parts[1].split("[\\s,]+");
             int max = 0;
@@ -42,6 +57,26 @@ public class QueryProcessor {
                 }
             }
             return String.valueOf(max);
+        }
+        if (query.toLowerCase().contains("prime")) {
+            String[] parts = query.split(":");
+            String[] numbers = parts[1].split("[\\s,]+");
+            ArrayList<Integer> res = new ArrayList<>();
+            for (String n : numbers) {
+                System.out.println(n);
+                try {
+                    int num = Integer.valueOf(n);
+                    if (isPrime(num)) {
+                        System.out.println("is prime");
+                        res.add(num);
+                    }
+                } catch (Exception e) {
+                }
+            }
+            if (res.isEmpty()) {
+                return "";
+            }
+            return res.toString().replace("[", "").replace("]", "");
         }
         if (query.toLowerCase().contains("plus")) {
             String[] parts = query.split(" ");
@@ -82,7 +117,10 @@ public class QueryProcessor {
                 } catch (Exception e) {
                 }
             }
-            return res.toString();
+            if (res.isEmpty()) {
+                return "";
+            }
+            return res.toString().replace("[", "").replace("]", "");
         }
         return "";
     }
