@@ -16,6 +16,20 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("what is your name")) {
             return "PRS";
         }
+        if (query.toLowerCase().contains("which of the following numbers is the largest")) {
+            String[] parts = query.split(":");
+            String[] numbers = parts[1].split("[\\s,]+");
+            int max = 0;
+            for (String n: numbers) {
+                try {
+                    int num = Integer.valueOf(n);
+                    max = Math.max(num, max);
+                }
+                catch (Exception e) {
+                }
+            }
+            return String.valueOf(max);
+        }
         return "";
     }
 }
