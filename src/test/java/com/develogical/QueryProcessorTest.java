@@ -84,4 +84,9 @@ public class QueryProcessorTest {
     public void knowsWhichArePrimes() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers are primes: 4, 7"), containsString("7"));
     }
+
+    @Test
+    public void returnsMinusNumbers() throws Exception {
+        assertThat(queryProcessor.process("what is 20 minus 5"), containsString("15"));
+    }
 }

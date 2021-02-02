@@ -63,11 +63,9 @@ public class QueryProcessor {
             String[] numbers = parts[1].split("[\\s,]+");
             ArrayList<Integer> res = new ArrayList<>();
             for (String n : numbers) {
-                System.out.println(n);
                 try {
                     int num = Integer.valueOf(n);
                     if (isPrime(num)) {
-                        System.out.println("is prime");
                         res.add(num);
                     }
                 } catch (Exception e) {
@@ -85,6 +83,25 @@ public class QueryProcessor {
                 try {
                     int num = Integer.valueOf(n);
                     sum += num;
+                } catch (Exception e) {
+                }
+            }
+            return String.valueOf(sum);
+        }
+        if (query.toLowerCase().contains("minus")) {
+            String[] parts = query.split(" ");
+            int sum = 0;
+            boolean first = true;
+            for (String n : parts) {
+                try {
+                    int num = Integer.valueOf(n);
+                    if (first) {
+                        sum += num;
+                        first = false;
+                    }
+                    else {
+                        sum -= num;
+                    }
                 } catch (Exception e) {
                 }
             }
