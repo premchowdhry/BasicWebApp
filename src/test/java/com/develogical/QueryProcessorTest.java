@@ -39,4 +39,9 @@ public class QueryProcessorTest {
     public void returnsSumNumbers() throws Exception {
         assertThat(queryProcessor.process("what is 2 plus 20"), containsString("22"));
     }
+
+    @Test
+    public void returnsProductNumbers() throws Exception {
+        assertThat(queryProcessor.process("what is 3 multiplied by 20"), containsString("60"));
+    }
 }
