@@ -107,6 +107,25 @@ public class QueryProcessor {
             }
             return String.valueOf(sum);
         }
+        if (query.toLowerCase().contains("power")) {
+            String[] parts = query.split(" ");
+            double res = 0;
+            boolean first = true;
+            for (String n : parts) {
+                try {
+                    int num = Integer.valueOf(n);
+                    if (first) {
+                        res = num;
+                        first = false;
+                    }
+                    else {
+                        res = Math.pow(res, num);
+                    }
+                } catch (Exception e) {
+                }
+            }
+            return String.valueOf(res);
+        }
         if (query.toLowerCase().contains("multiplied")) {
             String[] parts = query.split(" ");
             int prod = 1;
