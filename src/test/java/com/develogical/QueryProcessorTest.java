@@ -59,4 +59,19 @@ public class QueryProcessorTest {
     public void knowsDrNoJamesBond() throws Exception {
         assertThat(queryProcessor.process("Who played James Bond in the film Dr No"), containsString("Sean Connery"));
     }
+
+    @Test
+    public void knowsColourOfBanana() throws Exception {
+        assertThat(queryProcessor.process("which year was Theresa May first elected as the Prime Minister of Great Britain"), containsString("2016"));
+    }
+
+    @Test
+    public void knowsCityOfEiffelTower() throws Exception {
+        assertThat(queryProcessor.process("what colour is a banana"), containsString("yellow"));
+    }
+
+    @Test
+    public void knowsWhenTheresaMay() throws Exception {
+        assertThat(queryProcessor.process("what city is the Eiffel Tower in"), containsString("Paris"));
+    }
 }

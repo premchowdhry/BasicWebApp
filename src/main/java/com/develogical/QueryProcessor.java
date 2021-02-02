@@ -21,6 +21,15 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("dr no")) {
             return "Sean Connery";
         }
+        if (query.toLowerCase().contains("theresa may")) {
+            return "2016";
+        }
+        if (query.toLowerCase().contains("banana")) {
+            return "yellow";
+        }
+        if (query.toLowerCase().contains("eiffel tower")) {
+            return "Paris";
+        }
         if (query.toLowerCase().contains("which of the following numbers is the largest")) {
             String[] parts = query.split(":");
             String[] numbers = parts[1].split("[\\s,]+");
