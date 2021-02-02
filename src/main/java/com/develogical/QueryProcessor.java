@@ -20,15 +20,26 @@ public class QueryProcessor {
             String[] parts = query.split(":");
             String[] numbers = parts[1].split("[\\s,]+");
             int max = 0;
-            for (String n: numbers) {
+            for (String n : numbers) {
                 try {
                     int num = Integer.valueOf(n);
                     max = Math.max(num, max);
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                 }
             }
             return String.valueOf(max);
+        }
+        if (query.toLowerCase().contains("plus")) {
+            String[] parts = query.split(" ");
+            int sum = 0;
+            for (String n : parts) {
+                try {
+                    int num = Integer.valueOf(n);
+                    sum += num;
+                } catch (Exception e) {
+                }
+            }
+            return String.valueOf(sum);
         }
         return "";
     }

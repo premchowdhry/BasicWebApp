@@ -34,4 +34,9 @@ public class QueryProcessorTest {
     public void givesLargestNumber() throws Exception {
         assertThat(queryProcessor.process("which of the following numbers is the largest: 20, 21"), containsString("21"));
     }
+
+    @Test
+    public void returnsSumNumbers() throws Exception {
+        assertThat(queryProcessor.process("what is 2 plus 20"), containsString("22"));
+    }
 }
