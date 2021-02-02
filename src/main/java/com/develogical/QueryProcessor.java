@@ -1,5 +1,7 @@
 package com.develogical;
 
+import java.util.ArrayList;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -52,6 +54,24 @@ public class QueryProcessor {
                 }
             }
             return String.valueOf(prod);
+        }
+        if (query.toLowerCase().contains("square and a cube")) {
+            System.out.println("reached");
+            String[] parts = query.split(":");
+            String[] numbers = parts[1].split("[\\s,]+");
+            ArrayList<Integer> res = new ArrayList<>();
+            for (String n : numbers) {
+                try {
+                    int num = Integer.valueOf(n);
+                    double sqrt = Math.sqrt(num);
+                    double cbrt = Math.cbrt(num);
+                    if (sqrt == Math.floor(sqrt) && cbrt == Math.floor(cbrt)) {
+                        res.add(num);
+                    }
+                } catch (Exception e) {
+                }
+            }
+            return res.toString();
         }
         return "";
     }

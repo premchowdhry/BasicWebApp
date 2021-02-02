@@ -44,4 +44,14 @@ public class QueryProcessorTest {
     public void returnsProductNumbers() throws Exception {
         assertThat(queryProcessor.process("what is 3 multiplied by 20"), containsString("60"));
     }
+
+    @Test
+    public void returnsIfCubeAndSquare() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 1225, 64"), containsString("64"));
+    }
+
+    @Test
+    public void returnsIfNoneAreCubeAndSquare() throws Exception {
+        assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 1225, 31"), containsString(""));
+    }
 }
